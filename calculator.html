@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <!--container-->
+        <div style="display: flex;border: 2px solid black;height: 550px;width: 300px;
+        flex-direction: column;margin-left: 540px;border-radius: 10px;margin-top: 80px;background-color:rgb(179, 174, 174) ">
+    
+            <div >
+                <!---textbox-->
+                <input type="text" placeholder="0" style="height: 100px;width: 275px;display: flex; margin: 22px 0px -6px 9px;border: 3px solid aliceblue;
+               background-color: rgb(62 66 61);font-size: 30px;border-radius: 5px;color: aliceblue;text-align: end;" id="display">
+    
+                <div style="gap: 7px; height: 65px; display: flex;justify-content: center;margin-top: 35px;">
+                    <!--1st row-->
+                    <button style="width: 65px;color: aliceblue;background-color: rgb(224, 107, 11);border-radius: 15px;font-size: 15px;" onclick="cleardisplay()">AC</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 15px;" onclick="del()">DEL</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 20px;" onclick="displayonclick('%')">%</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 25px;" onclick="displayonclick('/')">/</button>
+                </div>
+    
+                <div style="gap: 10px; height: 65px; display: flex;justify-content: center;margin: 11px;">
+                    <!--2nd row-->
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('7')">7</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('8')">8</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('9')">9</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 25px;" onclick="displayonclick('*')">*</button>
+                </div>
+    
+                <div style="gap: 10px; height: 65px; display: flex;justify-content: center;margin: 11px;">
+                    <!--3rd row-->
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('4')">4</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('5')">5</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('6')">6</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 25px;" onclick="displayonclick('-')">-</button>
+                </div>
+    
+                <div style="gap: 10px; height: 65px; display: flex;justify-content: center;margin: 11px;">
+                    <!--4th row-->
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius:20px;font-size: 15px;" onclick="displayonclick('1')">1</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('2')">2</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('3')">3</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 20px;" onclick="displayonclick('+')">+</button>
+                </div>
+    
+                <div style="gap: 10px; height: 65px; display: flex;justify-content: center;margin:11px;">
+                    <!--5th row-->
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius:20px;font-size: 15px;" onclick="displayonclick('00')">00</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);;border-radius: 20px;font-size: 15px;" onclick="displayonclick('0')">0</button>
+                    <button style="width: 65px;color: rgb(152, 146, 146);background-color: rgb(42 38 38);border-radius: 20px;font-size: 15px;" onclick="displayonclick('.')">.</button>
+                    <button style="width: 65px;color: rgb(199, 124, 26);background-color: rgb(42 38 38);border-radius: 15px;font-size: 20px;" onclick="calculate()" id="result">=</button>
+                </div>
+            </div>
+        </div>
+    
+        <!--javascript-->
+        <script>
+            const display = document.getElementById("display");
+            var data = ""
+            
+            function displayonclick(input) {
+                data += input;
+                console.log(data);
+                display.value = data;
+            }
+    
+            function calculate() {
+                try {
+    
+                    display.value = eval(data);
+                }
+                catch (error) {
+                    display.value = "Syntax Error";
+    
+                }
+    
+            }
+    
+            function cleardisplay() {
+                display.value = " ";
+                data = ""
+            }
+    
+            function del() {
+                        var input = document.getElementById("display");
+                        input.value = input.value.substring(0, input.value.length -1);
+                        data="";
+                    }
+    
+        </script>
+    
+</body>
+</html>
+     

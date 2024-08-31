@@ -1,0 +1,80 @@
+/* Styling the body element
+        like body color and margin */
+
+body {
+    background-color: rgb(0 0 0 / 89%);
+}
+
+
+/* Styling the Title and giving
+        shadow to the title */
+#title {
+    text-align: center;
+    font-size: 3vh;
+    color: white;
+}
+#title1{
+    margin: 10% 10% 10% 10%;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0 0 0 / 89%);
+    margin: 0% 20% 20% 20%;
+}
+
+image {
+    background-color: whitesmoke;
+}
+
+/* Setting width and display
+        type of image */
+img {
+    /* display: flex; */
+    height: 380px;
+    width: 900px;
+}
+#cap{
+    width: 489px;
+    margin-top: 5%;
+}
+/* Setting font color and font
+        size of the image-caption */
+#caption {
+    font-size: 18px;
+    font-family: Gill Sans;
+    color: whitesmoke;
+}
+
+/* Styling the content of the page like-
+        padding, font-size, font color etc.*/
+div#tribute-data {
+    background-color: rgb(0 0 0 / 25%);
+     font-family: math;
+    padding: 25px 25px;
+    margin: 135px;
+    margin-top: 50px;
+    color: whitesmoke;
+    line-height: 19.3px;
+    word-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* Styling the title of the content */
+h1.title-APJ {
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    text-shadow: 5px 5px 10px black;
+}
+
+/* Styling the link provided at the end */
+#tribute-link {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
